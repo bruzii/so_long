@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parcing_2.c                                     :+:      :+:    :+:   */
+/*   ft_parcing_bonus2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgervais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:11:56 by bgervais          #+#    #+#             */
-/*   Updated: 2023/01/06 16:20:43 by bgervais         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:20:57 by bgervais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -19,7 +19,7 @@ void	ft_check_string(char *str, t_point *p, int fd)
 	(void) p;
 	while (str[i])
 	{
-		if (str[i] != '1' && str[i] != '0' && str[i] != 'C'
+		if (str[i] != '1' && str[i] != '0' && str[i] != 'C' && str[i] != 'M'
 			&& str[i] != 'E' && str[i] != 'P' && str[i] != '\n')
 		{
 			ft_putstr_fd("Map error\n", 2);

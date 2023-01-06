@@ -6,7 +6,7 @@
 /*   By: bgervais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 18:09:54 by bgervais          #+#    #+#             */
-/*   Updated: 2023/01/06 12:09:34 by bgervais         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:19:40 by bgervais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define AA "./src_xpm/a_2.xpm"
 # define M_1 "./src_xpm/mechant_1.xpm"
 # define M_2 "./src_xpm/mechant_2.xpm"
- 
+
 typedef struct s_point
 {
 	int		col;

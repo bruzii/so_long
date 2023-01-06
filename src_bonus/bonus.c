@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_map.c                                         :+:      :+:    :+:   */
+/*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bgervais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 12:03:53 by bgervais          #+#    #+#             */
-/*   Updated: 2023/01/06 16:20:15 by bgervais         ###   ########.fr       */
+/*   Created: 2023/01/06 15:17:23 by bgervais          #+#    #+#             */
+/*   Updated: 2023/01/06 15:22:16 by bgervais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "so_long.h"
 
 void	ft_destroy(t_point *p)
@@ -102,8 +101,18 @@ void	fill_map_init(void *mlx, char **str, t_point *p)
 		k = 0;
 		while (str[i][k])
 		{
-			mlx_put_image_to_window(mlx, p->win, ft_img(str[i][k], p),
-				(k * 32), (i * 32));
+			if ((i == (rand() % p->row + 3)) && str[i][k] == '0'
+				&& ft_count_c('A', p) < 4 && ft_count_c('0', p) > 5)
+				str[i][k] = 'A';
+			if (i != (p->row - 1))
+				mlx_put_image_to_window(mlx, p->win, ft_img(str[i][k], p),
+					(k * 32), (i * 32));
+			else
+				mlx_put_image_to_window(mlx, p->win, ft_compteur(&k, p),
+					(k * 32), (i * 32));
+			if (str[i][k] == 'A' && p->pas % 2 == 1)
+				mlx_put_image_to_window(mlx, p->win, p->img[16],
+					(k * 32), (i * 32));
 			k++;
 		}
 		i++;
