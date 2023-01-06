@@ -6,7 +6,7 @@
 /*   By: bgervais <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 12:03:53 by bgervais          #+#    #+#             */
-/*   Updated: 2023/01/06 12:02:39 by bgervais         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:00:36 by bgervais         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	*ft_compteur(int *col, t_point *p)
 	int	value;
 
 	i = p->pas;
-	len_col = ((p->col - 1) / 2);
+	len_col = ((p->col) / 2);
 	value = 14;
 	if (*col == len_col)
 		value = i % 10;
@@ -84,6 +84,9 @@ void	*ft_compteur(int *col, t_point *p)
 		value = i % 10;
 	i /= 10;
 	if (*col == len_col - 3)
+		value = i % 10;
+	i /= 10;
+	if (*col == len_col - 4)
 		value = i % 10;
 	return (p->img[value]);
 }
@@ -99,8 +102,8 @@ void	fill_map_init(void *mlx, char **str, t_point *p)
 		k = 0;
 		while (str[i][k])
 		{
-			if ((i == (rand() % p->row + 3) || k == (rand() % p->col))
-				&& str[i][k] == '0' && ft_count_c('A', p) < 4)
+			if ((i == (rand() % p->row + 3)) && str[i][k] == '0'
+				&& ft_count_c('A', p) < 4 && ft_count_c('0', p) > 5)
 				str[i][k] = 'A';
 			if (i != (p->row - 1))
 				mlx_put_image_to_window(mlx, p->win, ft_img(str[i][k], p),
